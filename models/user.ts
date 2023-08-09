@@ -1,5 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "./index";
+import { Post } from "./post";
 export interface UserDetails {
     id: number;
     name: string;
@@ -50,4 +51,7 @@ User.init({
     timestamps: true,
     sequelize: sequelize ,
     paranoid: true 
-})
+});
+
+User.hasMany(Post)
+Post.belongsTo(User, { foreignKey: "userId" });

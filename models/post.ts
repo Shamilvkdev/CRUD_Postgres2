@@ -37,4 +37,5 @@ Post.init({
     timestamps: true,
     sequelize: sequelize ,
     paranoid: true 
-})
+});
+
