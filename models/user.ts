@@ -1,14 +1,14 @@
 import { DataTypes, Model } from "sequelize";
-
+import sequelize from "./index";
 export interface UserDetails {
     id: number;
     name: string;
     email: string;
     password: string;
     isVerified: boolean;
-    createdAt: Date;
-    updatedAt: Date;
-    deletedAt: Date;
+    createdAt?: Date;
+    updatedAt?: Date;
+    deletedAt?: Date;
 }
 
 export class User extends Model <UserDetails> implements UserDetails {
@@ -48,6 +48,6 @@ User.init({
     }
 },{
     timestamps: true,
-    sequelize: ,
+    sequelize: sequelize ,
     paranoid: true 
 })
